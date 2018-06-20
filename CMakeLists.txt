@@ -38,4 +38,4 @@ add_library(FreeImage ${SOURCE_FILES})
 target_include_directories(FreeImage PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/Source)
 
 install(TARGETS FreeImage DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
-install(FILES ./Source/CacheFile.h ./Source/FreeImage.h ./Source/FreeImageIO.h ./Source/MapIntrospector.h ./Source/Plugin.h ./Source/Quantizers.h ./Source/ToneMapping.h ./Source/Utilities.h DESTINATION ${CMAKE_INSTALL_PREFIX}/include)
+install(FILES ./Source/CacheFile.h ./Source/FreeImage.h ./Source/FreeImageIO.h ./Source/MapIntrospector.h ./Source/Plugin.h ./Source/Quantizers.h ./Source/ToneMapping.h ./Source/Utilities.h DESTINATION ${CMAKE_INSTALL_PREFIX}/include/FreeImage)

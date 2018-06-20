@@ -14,6 +14,7 @@ if(MSVC)
 		set(MSVC_RUNTIME "dynamic")
 	endif()
 	if(MSVC_RUNTIME STREQUAL "static")
+		add_definitions(-DFREEIMAGE_LIB -DOPJ_STATIC -DLIBRAW_NODLL -D_CRT_SECURE_NO_WARNINGS)
 		if(BUILD_SHARED_LIBS)
 			message(FATAL_ERROR "Static CRT is only supported in a fully static build")
 		endif()
@@ -35,3 +36,6 @@ include_directories(./ Source Source/Metadata Source/FreeImageToolkit Source/Lib
 
 add_library(FreeImage ${SOURCE_FILES})
 target_include_directories(FreeImage PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/Source)
+
+install(TARGETS FreeImage DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
+install(FILES ./Source/CacheFile.h ./Source/FreeImage.h ./Source/FreeImageIO.h ./Source/MapIntrospector.h ./Source/Plugin.h ./Source/Quantizers.h ./Source/ToneMapping.h ./Source/Utilities.h DESTINATION ${CMAKE_INSTALL_PREFIX}/include)
